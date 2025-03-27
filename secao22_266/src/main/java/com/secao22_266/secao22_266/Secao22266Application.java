@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 //@SpringBootApplication é uma anotação, para configurar este projeto, para que ele seja uma aplicação springboot.
-//O SpringBoot, faz bastante o uso das anotation, para configurar o nosso código.
+//O SpringBoot, faz bastante o uso das anotation, para configurar o nosso código.  http://localhost:8080/users
 @SpringBootApplication
 public class Secao22266Application {
 
