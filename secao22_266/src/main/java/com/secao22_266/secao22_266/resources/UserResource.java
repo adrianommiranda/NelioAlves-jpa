@@ -40,7 +40,7 @@ public class UserResource {
 	 * Istanciar o meu user
 	 * 
 	 * Retornar ResponseEntity.ok - para retornar a resposta com sucesso
-	 * return ResponseEntity.ok().body(u); - retornar o curpo da resposta, este meu User u acabei de instanciar
+	 * return ResponseEntity.ok().body(u); - retornar o corpo da resposta, este meu User u acabei de instanciar
 	 * 
 	 *
 	 */

@@ -3,9 +3,27 @@ package com.secao22_266.secao22_266.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+/*
+ * palavra user é uma palavra reservada do banco de dados H2
+ * Então é importante que a gente renomeie para essa tabela para 
+ * não dar conflito com a palavra user do banco
+ * 
+ * name = "tb_user"
+ * 
+ * */
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String email;
