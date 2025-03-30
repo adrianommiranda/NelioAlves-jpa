@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\sts-ws\NelioAlves-jpa\teste"/>
 			<item value="C:\sts-ws\NelioAlves-jpa\secao22_266"/>
 			<item value="C:\sts-ws\NelioAlves-jpa\secao22_266__"/>
 			<item value="C:\sts-ws\NelioAlves-jpa\apagar"/>
