@@ -1,12 +1,15 @@
 package com.secao22_266.secao22_266.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /*
@@ -30,6 +33,37 @@ public class User implements Serializable{
 	private String phone;
 	private String password;
 	
+	
+	/*
+	 * Associalção tabela pedidos(Order)
+	 * 
+	 * Só que aí pessoal se você reparar aqui ou no check list 
+	 * de entidade nós temos que instanciar as coleções. 
+	 * Então aqui no caso, como a lista de pedidos do usuário ela é uma coleção, 
+	 * na frente dela que eu já vou instanciar.
+	 * 
+	 * Agora vamos acrescentar o método get para esta Lista
+	 * No caso de uma coleção, só colocamos o get. 
+	 * Não colocamos os set, porque não vamos trocar a lista.
+	 * 
+	 * 
+	 * Já do lado do um para muitos a gente pode mapear também no JPA.
+	 * É opcional, mas caso você queira acessar, um objeto do tipo usuário, e
+	 *  acessar automaticamente os pedidos feitos por esse usuário, você pode também mapear do lado do um para muitos.
+	 *  
+	 *  Vamos fazer isso então.  Vamos na classe usuário.
+	 *  Aqui na minha lista de pedidos eu vou colocar o seguinte @OneToMany .
+	 *  e entre parênteses eu vou ter que colocar o nome do atributo que tem lá do outro lado da associação.
+	 *  Ora quem que é o atributo do outro lado da associação é esse que tá aqui na classe ordem client
+	 *  
+	 *  Na classe user, eu vou falar o seguinte, esse muitos para um, 
+	 *  lado ou outro lado ele está mapeado por quem, mapeado pelo atributo cliente.
+	 *  @OneToMany(mappedBy = "client")
+
+
+	 */
+	@OneToMany(mappedBy = "client")
+	private List<Order> orders = new ArrayList<>();
 	
 	//Como estamos usando um framework, será obrigado a colocar vazio
 	public User() {}
@@ -95,6 +129,10 @@ public class User implements Serializable{
 	}
 
 
+	public List<Order> getOrders() {
+		return orders;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -120,6 +158,9 @@ public class User implements Serializable{
 			return false;
 		return true;
 	}
+
+
+	
 
 
 	
