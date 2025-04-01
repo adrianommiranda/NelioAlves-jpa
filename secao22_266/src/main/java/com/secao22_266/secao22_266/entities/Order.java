@@ -3,7 +3,9 @@ package com.secao22_266.secao22_266.entities;
 import java.io.Serializable;
 import java.time.Instant;
 
-
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,9 @@ public class Order implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	//iso 8601
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT" )
 	private Instant moment;
 	
 	/*
@@ -45,6 +50,7 @@ public class Order implements Serializable{
 	 * Então o parâmetro name =  dar um nome pra essa chave estrangeira aqui. Eu vou dar o nome de client_id.
 	 * 
 	 */
+	//@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private User client;
