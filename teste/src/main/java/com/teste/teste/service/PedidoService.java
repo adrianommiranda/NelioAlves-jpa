@@ -15,12 +15,12 @@ public class PedidoService {
 	@Autowired
 	private PedidoRepository pedidoRepository;
 	
-	public List<Pedido> listarPedidos(){
+	public List<Pedido> listaPedido(){
 		return pedidoRepository.findAll();
 	}
 	
-	public Pedido pedidoId(Long id) {
-		Optional<Pedido> obj = pedidoRepository.findById(id);
-		return obj.get();
+	public Pedido listarPorId(Long id) {
+		Optional<Pedido> pedidoId = pedidoRepository.findById(id);
+		return pedidoId.get();
 	}
 }

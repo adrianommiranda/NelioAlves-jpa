@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,8 +26,9 @@ public class User implements Serializable {
 	private Long id;
 	private String nome;
 	
-	@OneToMany(mappedBy = "userId")
-	private List<Pedido> listaPedido =  new ArrayList<>();
+	@JsonIgnore
+	@OneToMany(mappedBy = "user")
+	private List<Pedido> listaOrder = new ArrayList<>();
 		
 	public User() {}
 	
@@ -53,6 +56,16 @@ public class User implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	
+	
+	public List<Pedido> getListaOrder() {
+		return listaOrder;
+	}
+
+	public void setListaOrder(List<Pedido> listaOrder) {
+		this.listaOrder = listaOrder;
 	}
 
 	@Override

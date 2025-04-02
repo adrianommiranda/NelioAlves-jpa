@@ -15,19 +15,19 @@ import com.teste.teste.service.PedidoService;
 @Controller
 @RequestMapping(value = "/pedidos")
 public class PedidoResource {
-
+	
 	@Autowired
 	private PedidoService pedidoService;
-	
+
 	@GetMapping
-	public ResponseEntity<List<Pedido>> listarPedido(){
-		List<Pedido> lista = pedidoService.listarPedidos();
+	public ResponseEntity<List<Pedido>> listaPedido(){
+		List<Pedido> lista = pedidoService.listaPedido();
 		return ResponseEntity.ok().body(lista);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Pedido> listarPedido_ID(@PathVariable Long id){
-		Pedido obj = pedidoService.pedidoId(id);
-		return ResponseEntity.ok().body(obj);
+	public ResponseEntity<Pedido> pedidoId(@PathVariable Long id){
+		Pedido pedidoIds = pedidoService.listarPorId(id);
+		return ResponseEntity.ok().body(pedidoIds);
 	}
 }
